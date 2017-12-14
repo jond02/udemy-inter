@@ -164,6 +164,171 @@ public class LinkedList {
         node.setNext(current);
     }
 
+    public void appendList(LinkedList list) {
+
+        if (list == null) {
+            return;
+        }
+
+        if (head == null) {
+
+            head = list.head;
+        } else {
+
+            Node n = head;
+            while (n.next != null) {
+                n = n.next;
+            }
+            n.next = list.head;
+        }
+    }
+
+    public LinkedList[] frontBackSplit() {
+
+        if (head == null) {
+            return null;
+        }
+
+        LinkedList[] arr = new LinkedList[2];
+
+        //one node in list
+        if (head.next == null) {
+            arr[0] = this;
+            arr[1] = null;
+            return arr;
+        }
+
+        //walk through list with two references
+        //fast goes through twice as fast, so when reaches the end the list is split
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null) {
+
+            fast = fast.next;
+            if (fast == null) {
+                break;
+            }
+
+            fast = fast.next;
+            if (fast != null) {
+                slow = slow.next;
+            }
+        }
+
+        //create second list and assign the head to the next node in slow
+        LinkedList list2 = new LinkedList();
+        list2.head = slow.next;
+        arr[1] = list2;
+
+        //set slow next to null and return 'this' as first list
+        slow.next = null;
+        arr[0] = this;
+
+        return arr;
+    }
+
+    public static void moveNode(LinkedList dest, LinkedList src) {
+
+        if (src == null || src.head == null || dest == null) {
+            return;
+        }
+
+        //removed null checks because assigning head or next to null is fine
+
+        //move head of src
+        Node node = src.head;
+
+        //remove head from the src list
+        src.head = src.head.next;
+
+        //link the nodes in the list to the new head
+        node.next = dest.head;
+        //replace the head
+        dest.head = node;
+    }
+
+    public static LinkedList sortedMerge(LinkedList list1, LinkedList list2) {
+
+        //if one is null return the other list, which might be null as well
+        if (list1 == null || list1.head == null) {
+            return list2;
+        } else if (list2 == null || list2.head == null) {
+            return list1;
+        }
+
+        LinkedList merged = new LinkedList();
+
+        //find which node should be first from the two lists and set merged head
+        if (list1.head.value < list2.head.value) {
+            merged.head = list1.head;
+            list1.head = list1.head.next;
+        } else {
+            merged.head = list2.head;
+            list2.head = list2.head.next;
+        }
+
+        Node node1 = list1.head;
+        Node node2 = list2.head;
+        Node current = merged.head;
+
+        while (node1 != null && node2 != null) {
+
+            //find which one is smaller, set new current, and go to next for added and current
+            if (node1.value < node2.value) {
+                current.next = node1;
+                node1 = node1.next;
+            } else {
+                current.next = node2;
+                node2 = node2.next;
+            }
+            current = current.next;
+        }
+
+        //add the rest for the list that didn't run out
+        if (node1 != null) {
+            current.next = node1;
+        } else {
+            current.next = node2;
+        }
+
+        return merged;
+    }
+
+    public static LinkedList reverse(LinkedList list) {
+        return list;
+    }
+
+    public void removeSortedDuplicates() {
+
+        if (head == null) {
+            return;
+        }
+
+        Node previous = head;
+        Node current  = head.next;
+
+        while (current != null) {
+
+            if (previous.value == current.value) {
+
+                //match found, remove duplicate current from list
+                //1, 3, 3, 4 -> 1, 3, 4
+                previous.next = current.next;
+                //advance current to test against previous value
+                current = previous.next;
+
+            } else {
+
+                //advance, match not found
+                previous = current;
+                current = current.next;
+            }
+
+        }
+    }
+
+
     public void print() {
         Node n = head;
         while(n != null) {
