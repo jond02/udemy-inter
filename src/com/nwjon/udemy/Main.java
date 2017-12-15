@@ -4,6 +4,20 @@ public class Main {
 
     public static void main(String[] args) {
 
+        DoublyLinkedList list = new DoublyLinkedList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+
+        list.delete(4);
+
+        list.print();
+
+    }
+
+    public static void reverse() {
         LinkedList list = new LinkedList();
 
         list.append(1);
@@ -11,9 +25,9 @@ public class Main {
         list.append(20);
         list.append(21);
 
-        LinkedList list1 = LinkedList.reverse(list);
+        list.reverseInPlace();
 
-        list1.print();
+        list.print();
 
     }
 

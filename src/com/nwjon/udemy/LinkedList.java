@@ -5,6 +5,7 @@ public class LinkedList {
     private Node head;
 
     public class Node {
+
         private int value;
         private Node next;
 
@@ -296,7 +297,48 @@ public class LinkedList {
     }
 
     public static LinkedList reverse(LinkedList list) {
-        return list;
+
+        Node previous = null;
+        Node next;
+        Node current = list.head;
+
+        while (current != null) {
+
+            next = current.next;
+
+            //reverse the link
+            current.next = previous;
+
+            //move previous and current by 1
+            previous = current;
+            current = next;
+        }
+
+        LinkedList list1 = new LinkedList();
+        list1.head = previous;
+
+        return list1;
+    }
+
+    public void reverseInPlace() {
+
+        Node previous = null;
+        Node next;
+        Node current = head;
+
+        while (current != null) {
+
+            //store the next value, then overwrite with the previous value to reverse the link
+            next = current.next;
+            current.next = previous;
+
+            //assign the new first node to previous
+            previous = current;
+
+            //use stored next value to move to next in list
+            current = next;
+        }
+        head = previous;
     }
 
     public void removeSortedDuplicates() {
