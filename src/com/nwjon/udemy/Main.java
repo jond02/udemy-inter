@@ -4,6 +4,22 @@ public class Main {
 
     public static void main(String[] args) {
 
+        int x = 5;
+        int y = 7;
+
+        int z = x ^ y;
+
+        System.out.println(Integer.toBinaryString(x));
+        //System.out.println(Integer.toBinaryString(~x));
+        System.out.println(Integer.toBinaryString(y));
+        System.out.println(Integer.toBinaryString(z));
+
+        System.out.println(y >> 1);
+
+
+    }
+
+    public static void delete() {
         DoublyLinkedList list = new DoublyLinkedList();
         list.add(1);
         list.add(2);
@@ -14,7 +30,6 @@ public class Main {
         list.delete(4);
 
         list.print();
-
     }
 
     public static void reverse() {
