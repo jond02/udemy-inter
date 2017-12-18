@@ -42,6 +42,7 @@ public class LinkedList {
     }
 
     //behave like a stack
+    //pop, first in first out
     public Node pop() {
 
         if (head == null) {
@@ -70,21 +71,6 @@ public class LinkedList {
     }
 
     public int size() {
-
-        if (head == null) {
-            return 0;
-        } else {
-            int i = 1;
-            Node n = head;
-            while(n.next != null) {
-                n = n.next;
-                i++;
-            }
-            return i;
-        }
-    }
-
-    public int size2() {
 
         int i = 0;
         Node n = head;

@@ -1,15 +1,28 @@
-package com.nwjon.udemy;
+package com.nwjon.udemy.general;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class General {
 
     public static void main(String... varargs) {
 
-        System.out.println(palindrome("lonely Tylenol"));
+        List<Point> points = new ArrayList<>();
+        points.add(new Point(5,7));
+        points.add(new Point(10,8));
+        points.add(new Point(9,9));
+        points.add(new Point(2,1));
 
+        Point point = new Point(3,3);
 
+        for (Point p : points) {
+            System.out.println(p.isWithinDistance(point, 5));
+        }
     }
 
     public static boolean palindrome(String data) {
+
+        //System.out.println(palindrome("cool"));
 
         data = data.replaceAll(" ", "").toLowerCase();
 
