@@ -1,6 +1,24 @@
 package com.nwjon.udemy.general;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Point {
+
+    public static void main(String... varargs) {
+
+        List<Point> points = new ArrayList<>();
+        points.add(new Point(5,7));
+        points.add(new Point(10,8));
+        points.add(new Point(9,9));
+        points.add(new Point(2,1));
+
+        Point point = new Point(3,3);
+
+        for (Point p : points) {
+            System.out.println(p.isWithinDistance(point, 5));
+        }
+    }
 
     private int x;
     private int y;
