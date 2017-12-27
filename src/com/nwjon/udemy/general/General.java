@@ -22,7 +22,9 @@ public class General {
 
     public static boolean palindrome(String data) {
 
-        //System.out.println(palindrome("cool"));
+        if (data == null) {
+            return false;
+        }
 
         data = data.replaceAll(" ", "").toLowerCase();
 
@@ -40,6 +42,5 @@ public class General {
         }
         return true;
     }
-
 
 }
