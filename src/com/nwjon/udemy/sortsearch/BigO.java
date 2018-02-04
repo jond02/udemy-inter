@@ -1,4 +1,4 @@
-package com.nwjon.udemy;
+package com.nwjon.udemy.sortsearch;
 
 public class BigO {
 
@@ -47,6 +47,7 @@ public class BigO {
     public void nestedForLoops(int n) {
 
         //quadratic time, order of n squared: O(n^2)
+        //nested for loops is multiplicative complexity
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -54,6 +55,49 @@ public class BigO {
             }
         }
     }
+
+    public void twoLoops(int n, int m) {
+
+        //additive, O(n + m)
+        //loops one after another is additive complexity
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("hi");
+        }
+
+        for (int i = 0; i < m; i++) {
+            System.out.println("again");
+        }
+    }
+
+    public void twoForLoopsNested(int n, int m) {
+
+        //multiplicative, O(n * m)
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.println("multiply");
+            }
+        }
+    }
+
+    public void nestedForLoopsWithNonNested(int n) {
+
+        //With two loops the complexity is actually O(n^2 + n), but the lower order terms are ignored
+        //quadratic time, order of n squared: O(n^2)
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.println(String.format("Product of %s and %s is %s", i, j, i * j));
+            }
+        }
+
+        for (int j = 0; j < n; j++) {
+            System.out.println("hi");
+        }
+    }
+
+
 
 
 }

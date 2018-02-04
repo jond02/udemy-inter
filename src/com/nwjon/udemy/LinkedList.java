@@ -128,6 +128,21 @@ public class LinkedList {
         node.setNext(current);
     }
 
+    public static boolean isSame(LinkedList list1, LinkedList list2) {
+        return isSame(list1.getNth(0), list2.getNth(0));
+    }
+
+    public static boolean isSame(Node node1, Node node2) {
+
+        if (node1 == null && node2 == null) {
+            return true;
+        } else if (node1 == null || node2 == null) {
+            return false;
+        }
+
+        return node1.value == node2.value && isSame(node1.getNext(), node2.getNext());
+    }
+
     public void sortedInsert(int value) {
 
         Node node = new Node();

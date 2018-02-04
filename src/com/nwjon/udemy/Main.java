@@ -4,19 +4,41 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int x = 5;
-        int y = 7;
+//        int x = 5;
+//        int y = 7;
+//
+//        int z = x ^ y;
+//
+//        System.out.println(Integer.toBinaryString(x));
+//        System.out.println(Integer.toBinaryString(~x));
+//        System.out.println(Integer.toBinaryString(y));
+//        System.out.println(Integer.toBinaryString(z));
+//
+//        System.out.println(y >> 1);
 
-        int z = x ^ y;
-
-        System.out.println(Integer.toBinaryString(x));
-        //System.out.println(Integer.toBinaryString(~x));
-        System.out.println(Integer.toBinaryString(y));
-        System.out.println(Integer.toBinaryString(z));
-
-        System.out.println(y >> 1);
+        isSame();
 
 
+    }
+
+    private static void isSame() {
+
+        LinkedList list = new LinkedList();
+
+        list.append(1);
+        list.append(10);
+        list.append(20);
+        list.append(21);
+
+        LinkedList list2 = new LinkedList();
+
+        list2.append(1);
+        list2.append(10);
+        list2.append(20);
+        list2.append(21);
+
+        boolean result = LinkedList.isSame(list, list2);
+        System.out.println(result);
     }
 
     public static void delete() {

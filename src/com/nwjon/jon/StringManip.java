@@ -6,16 +6,30 @@ public class StringManip {
 
         final String s = "backwards";
 
-        System.out.println(reverse(s));
-        System.out.println(reverse1(s));
-        System.out.println(reverse2(s));
-        System.out.println(reverse3(s));
+        System.out.println(reverseRecur(s));
 
-        String b = new StringBuilder(s).reverse().toString();
-        System.out.println(b);
+//        System.out.println(reverse(s));
+//        System.out.println(reverse1(s));
+//        System.out.println(reverse2(s));
+//        System.out.println(reverse3(s));
+//
+//        String b = new StringBuilder(s).reverse().toString();
+//        System.out.println(b);
+//
+//        char bb = 70;
+//        System.out.println(bb);
+    }
 
-        char bb = 70;
-        System.out.println(bb);
+    //recursion is like mathematical induction
+    private static String reverseRecur(String s) {
+
+          //base case of the recursion
+//        if (s.length() < 2) {
+//            return s;
+//        }
+//        return reverseRecur(s.substring(1, s.length())) + s.substring(0,1);
+//
+        return (s == null || s.length() < 2) ? s : reverseRecur(s.substring(1, s.length())) + s.substring(0,1);
     }
 
     private static String reverse(String s) {
